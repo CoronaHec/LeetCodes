@@ -32,7 +32,7 @@ int main() {
     }
     std::cout << std::endl;
     std::cout << "Using iterators: ";
-    for(std::vector<int>::iterator it = endResult.begin(); it != endResult.end();it++) {
+    for(std::vector<int>::iterator it = endResult.begin(); it != endResult.end(); it++) {
         std::cout << nums[*it] << " ";
     }
 

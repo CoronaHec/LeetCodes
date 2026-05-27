@@ -4,7 +4,23 @@
 class Solution {
 public:
     std::vector<int> plusOne(std::vector<int>& digits) {
-        std::vector<int> holder; // temp holder
+        // have to read backwards since 9,9 should give 1,0,0
+        for(int i = digits.size() - 1; i >= 0; i--) {
+            if(digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+
+            digits[i] = 0;
+        }
+
+        digits.insert(digits.begin(), 1);
+        return digits;
+    }
+
+    /*
+        std::cout << "\n--------------------";
+
         for(int i = 0; i <= digits.size(); i++) {
             if(i == digits.size()-1) {
                 if(digits[i] == 9) {
@@ -26,7 +42,7 @@ public:
         }
         std::cout << "]";
         return digits;
-    }
+    }*/
     
 };  
 
@@ -38,12 +54,7 @@ int main() {
     //user.push_back(3);
     //user.push_back(4);
     user.push_back(9);
-    /*for(std::vector<int>::iterator it = user.begin(); it != user.end(); it++) {
-        std::cout << *it << " ";
-    }*/
-    /*for(int value : user) {
-        std::cout << value << " ";
-    }*/
+    user.push_back(9);
     std::cout << "[";
     for(int i = 0; i < user.size(); i++) {
         std::cout << user[i];
